@@ -4,6 +4,8 @@ import 'package:ecommerce/components/default_button.dart';
 import 'package:ecommerce/components/form_error.dart';
 import 'package:ecommerce/constants.dart';
 import 'package:ecommerce/screens/forgot_password/forgot_password_screen.dart';
+import 'package:ecommerce/screens/login_success/login_success.dart';
+import 'package:ecommerce/screens/sign_up/SignUpScreen.dart';
 import 'package:ecommerce/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -47,7 +49,28 @@ class Body extends StatelessWidget {
                   press: (){},
 
                 ),  
-              ],)
+              ],
+            ),
+            SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Dont have an account yet?",
+                  style: TextStyle(fontSize: 16),
+                ),
+                SizedBox(width: 10),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.pushNamed(context, SignUpScreen.routeName);
+                  },
+                  child: Text("Sign Up",
+                          style: TextStyle(fontSize: 16, color: kPrimaryColor),),
+                ),
+
+              ],
+            ),
+
           ],
         ),
       ) 
@@ -122,6 +145,8 @@ class _SignFormState extends State<SignForm> {
             press: (){
               if(_formKey.currentState!.validate()){
                 _formKey.currentState!.save();
+                Navigator.pushNamed(context,LoginSuccess.routeName);
+
               }
             },
           ),
