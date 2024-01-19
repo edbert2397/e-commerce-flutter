@@ -1,6 +1,8 @@
 import 'package:ecommerce/screens/home/components/categories.dart';
 import 'package:ecommerce/screens/home/components/discount_banner.dart';
 import 'package:ecommerce/screens/home/components/home_header.dart';
+import 'package:ecommerce/screens/home/components/popular_product.dart';
+import 'package:ecommerce/screens/home/components/special_offers.dart';
 import 'package:flutter/material.dart';
 
 class Body extends StatefulWidget {
@@ -22,6 +24,10 @@ class _BodyState extends State<Body> {
             DiscountBanner(),
             // SizedBox(height: 5, ),
             Categories(),
+            SpecialOffers(),
+            SizedBox(height: 15, ),
+            PopularProducts(),
+            
             
 
           ],
