@@ -1,5 +1,6 @@
 import 'package:ecommerce/components/product_card.dart';
 import 'package:ecommerce/models/Product.dart';
+import 'package:ecommerce/screens/details/detail_screen.dart';
 import 'package:ecommerce/screens/home/components/section_title.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,10 @@ class PopularProducts extends StatelessWidget {
               children: List.generate(demoProducts.length, 
                           (index) {
                             if(demoProducts[index].isPopular){
-                              return ProductCard(product: demoProducts[index]);
+                              return ProductCard(
+                                product: demoProducts[index],
+                                press: () => Navigator.pushNamed(context, DetailScreen.routeName,arguments: ProductDetailArguments(product: demoProducts[index]) ),
+                                );
                             }
 
                             return SizedBox.shrink();
